@@ -1,2 +1,2 @@
-<button class="btn btn-primary" [disabled]="allowedServer">Start</button>
-<p>{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p>
+<button class="btn btn-primary" (click)="changeStatus()">Start</button>
+<p>{{serverStatus}}</p>

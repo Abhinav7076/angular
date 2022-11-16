@@ -8,8 +8,9 @@ import { Component } from "@angular/core";
 })
 export class ServerComponent{
     serverId: number = 10;
-    serverStatus: string = 'online';
+    serverStatus: string = 'server stalled';
     allowedServer = false;
+
     constructor(){
         setTimeout(() => {
             this.allowedServer = true;
@@ -18,5 +19,9 @@ export class ServerComponent{
 
     getServerStatus(){
         return this.serverStatus
+    }
+
+    changeStatus(){
+        this.serverStatus = 'server running'
     }
 }
