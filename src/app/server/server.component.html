@@ -1,4 +1,7 @@
 <input type="text" [(ngModel)]="input">
 <p>{{input}}</p>
 <button (click)="change()">Reset</button>
-<p *ngIf="serverCreated">Server Created</p>
+<p *ngIf="serverCreated; else noServer">Server Created</p>
+<ng-template #noServer>
+    <p>Server not created</p>
+</ng-template>
