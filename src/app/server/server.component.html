@@ -1,2 +1,4 @@
 <input type="text" [(ngModel)]="input">
 <p>{{input}}</p>
+<button [disabled]="input === ''" >Click me</button>
+<button (click)="reset()">Reset</button>
