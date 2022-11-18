@@ -8,11 +8,19 @@ export class ServerComponent{
     input=''
     serverCreated=false
     on=true
+    port1Status=''
+    port2Status=''
 
-    change(){
-        this.serverCreated = !this.serverCreated
+    constructor(){
+        this.port1Status = Math.random() > 0.5 ? 'online' : 'offline'
+        this.port2Status = Math.random() > 0.5 ? 'online' : 'offline'
     }
-    getInput(event: Event){
-        this.input = (<HTMLInputElement>event.target).value
+
+    getColor(){
+        return this.port1Status === 'online' ? 'green' : 'red'
     }
+    getColor2(){
+        return this.port2Status === 'online' ? 'green' : 'red'
+    }
+    
 }

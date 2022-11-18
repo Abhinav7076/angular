@@ -1,7 +1,2 @@
-<input type="text" [(ngModel)]="input">
-<p>{{input}}</p>
-<button (click)="change()">Reset</button>
-<p *ngIf="serverCreated; else noServer">Server Created</p>
-<ng-template #noServer>
-    <p>Server not created</p>
-</ng-template>
+<p [ngStyle]="{'background-color': getColor()}">Server 1 is {{port1Status}}</p>
+<p [ngStyle]="{'background-color': getColor2()}">Server 2 is {{port2Status}}</p>
