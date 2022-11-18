@@ -1,2 +1,1 @@
-<p [ngStyle]="{'background-color': getColor()}">Server 1 is {{port1Status}}</p>
-<p [ngStyle]="{'background-color': getColor2()}">Server 2 is {{port2Status}}</p>
+<p [ngStyle]="{'background-color': getColor()}" [ngClass]="{online: port1Status === 'online'}">Server 1 is {{port1Status}}</p>
