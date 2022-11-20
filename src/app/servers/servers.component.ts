@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
+  servername = 'Testserver'
+  servers = []
+
   constructor() { }
+
+  onCreateServer(){
+    this.servers.push(this.servername)
+  }
 
   ngOnInit(): void {
   }
