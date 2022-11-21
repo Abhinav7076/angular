@@ -1,8 +1,4 @@
-<div class="row">
-    <div class="col-xs-12">
-        <button class="btn btn-success">New Student</button>
-    </div>
-</div>
+<app-take-input (studentData)="onStudentAdded($event)"></app-take-input>
 <hr>
 
-<app-student-profile *ngFor="let profile of profiles" [pro]="profile"></app-student-profile>
+<app-student-profile *ngFor="let profile of profiles" [profile]="profile"></app-student-profile>

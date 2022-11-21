@@ -8,7 +8,7 @@ import { profile } from '../profile.model';
 })
 export class StudentProfileComponent implements OnInit {
 
-  @Input('pro') profile: {name: string, rollno: string, department: string}
+  @Input() profile: {name: string, rollno: string, department: string}
 
   constructor() { }
 

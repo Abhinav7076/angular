@@ -15,6 +15,10 @@ export class HomeComponent implements OnInit {
     new profile('Williamson', '4', 'Finance'),
     
   ]
+
+  onStudentAdded(studentData: {name: string, rollno: string, department: string}){
+    this.profiles.push({name: studentData.name, rollno: studentData.rollno, department: studentData.department})
+  }
   
   constructor() { }
 

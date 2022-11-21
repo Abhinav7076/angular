@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { StudentProfileComponent } from './home/student-profile/student-profile.component';
+import { TakeInputComponent } from './home/take-input/take-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    StudentProfileComponent
+    StudentProfileComponent,
+    TakeInputComponent
   ],
   imports: [
     FormsModule,
