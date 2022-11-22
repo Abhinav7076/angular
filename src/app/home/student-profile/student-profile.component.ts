@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { profile } from '../profile.model';
 
 @Component({
@@ -7,12 +7,17 @@ import { profile } from '../profile.model';
   styleUrls: ['./student-profile.component.css']
 })
 export class StudentProfileComponent implements OnInit {
-
+  
   @Input() profile: {name: string, rollno: string, department: string}
+  @Output() student_data = new EventEmitter<profile>()
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendData(profile: profile){
+    this.student_data.emit(profile)
   }
 
 }

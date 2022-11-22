@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { StudentProfileComponent } from './home/student-profile/student-profile.component';
 import { TakeInputComponent } from './home/take-input/take-input.component';
+import { StudentDetailComponent } from './home/student-detail/student-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TakeInputComponent } from './home/take-input/take-input.component';
     HomeComponent,
     HeaderComponent,
     StudentProfileComponent,
-    TakeInputComponent
+    TakeInputComponent,
+    StudentDetailComponent
   ],
   imports: [
     FormsModule,

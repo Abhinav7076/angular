@@ -15,11 +15,16 @@ export class HomeComponent implements OnInit {
     new profile('Williamson', '4', 'Finance'),
     
   ]
+  selected_profile: profile
 
   @Input() feature: string
 
   onStudentAdded(studentData: {name: string, rollno: string, department: string}){
     this.profiles.push({name: studentData.name, rollno: studentData.rollno, department: studentData.department})
+  }
+
+  recieve(student_data: profile){
+    this.selected_profile = student_data
   }
   
   constructor() { }
