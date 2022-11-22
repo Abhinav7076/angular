@@ -1,8 +1,8 @@
-<app-header></app-header>
+<app-header (featureSelected)="select($event)"></app-header>
 <div class="container">
     <div class="row">
         <div class="col-md-7">
-            <app-home></app-home>
+            <app-home *ngIf="feature === 'add'"></app-home>
         </div>
     </div>
 </div>
