@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name = "aps";
   title = 'my-dream-app';
-  feature = ''
+  featureSelected = ''
 
   select(feature: string){
-    this.feature = feature
+    this.featureSelected = feature
   }
 }

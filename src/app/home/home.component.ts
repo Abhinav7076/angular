@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { profile } from './profile.model';
 
 @Component({
@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
     new profile('Williamson', '4', 'Finance'),
     
   ]
+
+  @Input() feature: string
 
   onStudentAdded(studentData: {name: string, rollno: string, department: string}){
     this.profiles.push({name: studentData.name, rollno: studentData.rollno, department: studentData.department})
