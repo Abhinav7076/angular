@@ -6,7 +6,7 @@ import { LoggingService } from 'src/app/logging.service';
   selector: 'app-boat',
   templateUrl: './boat.component.html',
   styleUrls: ['./boat.component.css'],
-  providers: [LoggingService]
+  // providers: [LoggingService]
 })
 export class BoatComponent implements OnInit {
 
