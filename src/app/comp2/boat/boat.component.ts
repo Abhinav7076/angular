@@ -4,15 +4,15 @@ import { LoggingService } from 'src/app/logging.service';
 @Component({
   selector: 'app-boat',
   templateUrl: './boat.component.html',
-  styleUrls: ['./boat.component.css']
+  styleUrls: ['./boat.component.css'],
+  providers: [LoggingService]
 })
 export class BoatComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loggingService: LoggingService) { }
 
   select(message: string){
-    const service = new LoggingService()
-    service.showStatus(message)
+    this.loggingService.showStatus(message)
   }
 
   ngOnInit(): void {
