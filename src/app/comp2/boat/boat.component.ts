@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountsService } from 'src/app/account.service';
 import { LoggingService } from 'src/app/logging.service';
 
 @Component({
@@ -9,10 +10,14 @@ import { LoggingService } from 'src/app/logging.service';
 })
 export class BoatComponent implements OnInit {
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService, private accountService: AccountsService) { }
 
   select(message: string){
     this.loggingService.showStatus(message)
+  }
+
+  addAccount(){
+    this.accountService.addAccount('tom', 'running')
   }
 
   ngOnInit(): void {
