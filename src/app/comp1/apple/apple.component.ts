@@ -10,7 +10,13 @@ import { LoggingService } from 'src/app/logging.service';
 export class AppleComponent implements OnInit {
   @Input() account: {name: string, status: string}
 
-  constructor(private loggingService: LoggingService, private accountService: AccountsService) { }
+  content_recieve = 'gg'
+
+  constructor(private loggingService: LoggingService, private accountService: AccountsService) { 
+    this.accountService.content.subscribe(
+      (status: string) => this.content_recieve = status //receiving in a function
+    )
+  }
 
   ngOnInit(): void {
     

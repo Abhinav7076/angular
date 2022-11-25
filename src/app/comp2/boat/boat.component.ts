@@ -14,6 +14,7 @@ export class BoatComponent implements OnInit {
 
   select(message: string){
     this.loggingService.showStatus(message)
+    this.accountService.content.emit('cheese') //emit from here
   }
 
   addAccount(){
