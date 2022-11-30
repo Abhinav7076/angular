@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { profile } from '../profile.model';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-student-profile',
   templateUrl: './student-profile.component.html',
@@ -13,13 +13,13 @@ export class StudentProfileComponent implements OnInit {
 
   profile: {name: string, rollno: string, department: string} = {name: 'Hero', rollno: '1', department: 'Finance'}
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
-  sendData(profile: profile){
-    this.student_data.emit(profile)
+  
+  navigate(){
+    this.router.navigate(['/'])
   }
 
 }
