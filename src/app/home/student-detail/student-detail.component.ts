@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { profile } from '../profile.model';
 
 @Component({
@@ -14,6 +14,12 @@ export class StudentDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.student_data = new profile(this.route.snapshot.params['id'], this.route.snapshot.params['name'], '')
+    //updating the parameters
+    this.route.params.subscribe(
+      (param: Params) => {
+        this.student_data = new profile(param['id'], param['name'], '')
+      }
+    )
   }
 
 }
