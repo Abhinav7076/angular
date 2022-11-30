@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { profile } from '../profile.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-student-profile',
   templateUrl: './student-profile.component.html',
@@ -13,13 +13,13 @@ export class StudentProfileComponent implements OnInit {
 
   profile: {name: string, rollno: string, department: string} = {name: 'Hero', rollno: '1', department: 'Finance'}
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
   
   navigate(){
-    this.router.navigate(['/'])
+    this.router.navigate(['/j'], {relativeTo: this.route})
   }
 
 }
