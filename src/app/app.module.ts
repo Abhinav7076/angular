@@ -12,7 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'output', component: StudentProfileComponent},
+  { path: 'students', component: StudentProfileComponent},
+  { path: 'students/:id/:name', component: StudentDetailComponent},
   { path: 'input', component: TakeInputComponent},
 ]
 
