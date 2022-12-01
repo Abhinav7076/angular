@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-take-input',
@@ -12,7 +13,7 @@ export class TakeInputComponent implements OnInit {
   newRollNo = ''
   newDepartment = ''
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   onAddStudent(){
     this.studentData.emit({
@@ -23,6 +24,8 @@ export class TakeInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.queryParams)
+    console.log(this.route.snapshot.fragment)
   }
 
 }
