@@ -18,6 +18,7 @@ export class StudentDetailComponent implements OnInit {
     this.route.params.subscribe(
       (param: Params) => {
         this.student_data = new profile(param['id'], param['name'], '')
+        console.log(param)
       }
     )
   }

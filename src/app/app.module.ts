@@ -11,10 +11,11 @@ import { StudentDetailComponent } from './home/student-detail/student-detail.com
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: StudentDetailComponent},
   { path: 'students', component: StudentProfileComponent},
   { path: 'students/:id/:name', component: StudentDetailComponent},
   { path: 'input', component: TakeInputComponent},
+  { path: 'input/:id/edit', component: TakeInputComponent}
 ]
 
 @NgModule({
