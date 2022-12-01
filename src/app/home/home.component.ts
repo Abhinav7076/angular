@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { dataService } from './data.service';
 import { profile } from './profile.model';
 
 @Component({
@@ -8,13 +9,7 @@ import { profile } from './profile.model';
 })
 export class HomeComponent implements OnInit {
 
-  profiles: profile[] = [
-    new profile('Kohli', '1', 'History'),
-    new profile('Stokes', '2', 'Physics'),
-    new profile('Curran', '3', 'Chemistry'),
-    new profile('Williamson', '4', 'Finance'),
-    
-  ]
+  profiles: profile[] = []
   selected_profile: profile
 
   @Input() feature: string
@@ -27,9 +22,11 @@ export class HomeComponent implements OnInit {
     this.selected_profile = student_data
   }
   
-  constructor() { }
+  constructor(private dataService: dataService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.profiles = this.dataService.profiles
+    console.log(this.dataService.profiles)
   }
 
 }

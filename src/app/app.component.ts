@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { dataService } from './home/data.service';
+import { profile } from './home/profile.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [dataService]
 })
-export class AppComponent {
-  name = "aps";
-  title = 'my-dream-app';
-  featureSelected = ''
+export class AppComponent implements OnInit{
+  profiles: profile[] = []
 
-  select(feature: string){
-    this.featureSelected = feature
+  constructor(private dataService: dataService) {}
+
+  ngOnInit(): void {
+    this.profiles = this.dataService.profiles
   }
 }

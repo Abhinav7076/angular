@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { dataService } from '../data.service';
+import { profile } from '../profile.model';
 
 @Component({
   selector: 'app-take-input',
@@ -12,8 +14,9 @@ export class TakeInputComponent implements OnInit {
   newName = ''
   newRollNo = ''
   newDepartment = ''
+  profile: profile
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private dataService: dataService) { }
 
   onAddStudent(){
     this.studentData.emit({
@@ -26,6 +29,9 @@ export class TakeInputComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.route.snapshot.queryParams)
     console.log(this.route.snapshot.fragment)
+    const id = this.route.snapshot.params['id']
+    this.profile = this.dataService.getData(id)
+    console.log(this.profile)
   }
 
 }
