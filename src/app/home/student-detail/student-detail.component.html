@@ -1,8 +1,9 @@
 <div>
-            <h4 class="list-group-item-heading">Student Name : {{student_data.name}}</h4>
+            <h1 class="list-group-item-heading">Profile</h1>
+            <p class="list-group-item-heading">Student Name : {{student_data.name}}</p>
             <p class="list-group-item-heading">Roll Number : {{student_data.rollno}}</p>
             <p class="list-group-item-heading">Department : {{student_data.department}}</p>
             <button class="btn btn-primary pull-right" (click)="gotoEdit()">Edit</button>
-            <button class="btn btn-danger" (click)="deleteData(student_data.rollno)">Delete</button>            
+            <button class="btn btn-danger pull-left" (click)="deleteData(student_data.rollno)">Delete</button>            
 </div>
 <hr>
