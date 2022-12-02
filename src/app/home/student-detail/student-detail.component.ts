@@ -21,5 +21,9 @@ export class StudentDetailComponent implements OnInit {
     console.log(this.student_data)
     this.router.navigate(['/input', this.student_data.rollno, 'edit'])
   }
+  deleteData(id: string){
+    this.dataService.deleteData(id)
+    this.router.navigate(['/students'])
+  }
 
 }

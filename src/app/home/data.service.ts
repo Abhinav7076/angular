@@ -30,4 +30,8 @@ export class dataService {
     addData(newProfile: profile){
         this.profiles.push(newProfile)
     }
+    deleteData(id: string){
+        const index = this.profiles.findIndex(x => x.rollno === id)
+        this.profiles.splice(index, 1)
+    }
 }
