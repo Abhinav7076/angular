@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-xs-12">
       <h3>Add new Student!</h3>
-      <label>Student Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newName">
       <label>Student Roll Number</label>
       <input type="text" class="form-control" [(ngModel)]="newRollNo">
+      <label>Student Name</label>
+      <input type="text" class="form-control" [(ngModel)]="newName">
       <label>Student Department</label>
       <input type="text" class="form-control" [(ngModel)]="newDepartment">
       <br>
       <button
         class="btn btn-primary"
-        (click)="onAddStudent()">Add Student</button>
+        (click)="editData(newRollNo)">Add Student</button>
     </div>
   </div>

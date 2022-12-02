@@ -16,4 +16,15 @@ export class dataService {
         )
         return data
     }
+    updateData(newProfile: profile){
+        const original = this.profiles.find(
+            (pro)=>{
+                return pro.rollno === newProfile.rollno
+            }
+        )
+        if(original){
+            original.name = newProfile.name
+            original.department = newProfile.department
+        }
+    }
 }
