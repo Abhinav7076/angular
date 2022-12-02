@@ -3,8 +3,6 @@
             <p class="list-group-item-heading">Roll Number : {{student_data.rollno}}</p>
             <p class="list-group-item-heading">Department : {{student_data.department}}</p>
             <button class="btn btn-primary pull-right" (click)="gotoEdit()">Edit</button>
-            <div class="button btn btn-danger" (click)="deleteData(student_data.rollno)">Delete</div>
-            
+            <button class="btn btn-danger" (click)="deleteData(student_data.rollno)">Delete</button>            
 </div>
 <hr>
-<a [routerLink]="['/students', '5', 'Max']">Max</a>
