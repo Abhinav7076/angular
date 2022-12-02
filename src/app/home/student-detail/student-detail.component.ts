@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { dataService } from '../data.service';
 import { profile } from '../profile.model';
 
 @Component({
@@ -10,17 +11,10 @@ import { profile } from '../profile.model';
 export class StudentDetailComponent implements OnInit {
   student_data: profile
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: dataService) { }
 
   ngOnInit(): void {
-    this.student_data = new profile(this.route.snapshot.params['name'], this.route.snapshot.params['id'], '')
-    //updating the parameters
-    this.route.params.subscribe(
-      (param: Params) => {
-        this.student_data = new profile(param['name'], param['id'], '')
-        console.log(param)
-      }
-    )
+    this.student_data = this.dataService.getData(this.route.snapshot.params['id'])
   }
 
   gotoEdit(){

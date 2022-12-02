@@ -28,7 +28,10 @@ export class TakeInputComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id']
+    this.profile = this.dataService.getData(id)
     this.newRollNo = id
+    this.newName = this.profile.name
+    this.newDepartment = this.profile.department
   }
 
   editData(id: string){

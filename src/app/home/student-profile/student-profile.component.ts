@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class StudentProfileComponent implements OnInit {
   
   // @Input() profile: {name: string, rollno: string, department: string}
-  @Output() student_data = new EventEmitter<profile>()
+  // @Output() student_data = new EventEmitter<profile>()
 
   profile: {name: string, rollno: string, department: string} = {name: 'Hero', rollno: '1', department: 'Finance'}
 
