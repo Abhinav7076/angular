@@ -27,4 +27,7 @@ export class dataService {
             original.department = newProfile.department
         }
     }
+    addData(newProfile: profile){
+        this.profiles.push(newProfile)
+    }
 }
