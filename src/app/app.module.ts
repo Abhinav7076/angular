@@ -9,13 +9,16 @@ import { StudentProfileComponent } from './home/student-profile/student-profile.
 import { TakeInputComponent } from './home/take-input/take-input.component';
 import { StudentDetailComponent } from './home/student-detail/student-detail.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'students', component: StudentProfileComponent},
   { path: 'students/:id', component: StudentDetailComponent},
   { path: 'input/add', component: TakeInputComponent},
-  { path: 'input/:id/edit', component: TakeInputComponent}
+  { path: 'input/:id/edit', component: TakeInputComponent},
+  { path: 'not-found', component: PagenotfoundComponent},
+  { path: '**', redirectTo: '/not-found'}
 ]
 
 @NgModule({
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     StudentProfileComponent,
     TakeInputComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    PagenotfoundComponent
   ],
   imports: [
     FormsModule,
