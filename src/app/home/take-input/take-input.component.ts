@@ -13,7 +13,7 @@ export class TakeInputComponent implements OnInit {
   @Output() studentData = new EventEmitter<{name: string, rollno: string, department: string}>()
   newName = ''
   newRollNo = ''
-  newDepartment = ''
+  newDepartment = 'Chemistry'
   edit=false
   profile: profile
 

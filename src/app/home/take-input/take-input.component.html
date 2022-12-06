@@ -5,8 +5,19 @@
       <input type="text" class="form-control" [(ngModel)]="newRollNo" disabled="{{edit}}">
       <label>Student Name</label>
       <input type="text" class="form-control" [(ngModel)]="newName">
-      <label>Student Department</label>
-      <input type="text" class="form-control" [(ngModel)]="newDepartment">
+      <form>  
+        <label> Select Department : </label>  
+        <select  [(ngModel)]="newDepartment" name="sel">  
+        <option value = "Chemistry"> Chemistry   
+        </option>  
+        <option value = "Finance"> Finance   
+        </option>  
+        <option value = "History"> History  
+        </option>  
+        <option value = "Physics"> Physics  
+        </option>  
+        </select>  
+      </form>  
       <br>
       <button
         class="btn btn-primary"
