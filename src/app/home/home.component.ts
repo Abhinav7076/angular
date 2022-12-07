@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, error =>{
       console.log(error)
       alert(error)
+    }, ()=>{
+      console.log('Completed')
     })
   }
 
