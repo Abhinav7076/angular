@@ -1,6 +1,11 @@
 <div class="row">
     <div class="col-md-12">
         <p>Home</p>
-        <h1>{{count}}</h1>
+        <h1>{{timeLeft}}</h1>
     </div>
 </div>
+<button (click)='startTimer()'>Start Timer</button>
+<button (click)='pauseTimer()'>Pause</button>
+
+<p>{{timeLeft}} Seconds Left....</p>
+<h2 *ngIf="timeLeft===0">Time Up!!!</h2>
