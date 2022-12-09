@@ -1,36 +1,25 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { dataService } from './data.service';
-import { profile } from './profile.model';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { interval, Observable, Subscription } from 'rxjs';
-import { state, style, trigger } from '@angular/animations';
+import { quiz } from './quiz.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  animations: [
-    trigger('divState', [
-      state('normal', style({
-        'background-color' : 'yellow'
-      })),
-      state('highlight', style({
-        'background-color': 'red'
-      }))
-    ])
-  ]
+  
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  state = 'normal'
+
+  qData: quiz = new quiz('Europa is the moon of which planet ?','Jupiter','Saturn','Mars','Uranus','Jupiter')
+
+
   subscription: Subscription
+  timeLeft: number = 3
   count = 0
+  interval
 
-  constructor(private dataService: dataService) { }
-  timeLeft: number = 3;
-  interval;
 
-  changeColor(){
-    this.state = 'highlight'
-  }
-
+  constructor() { }
+  
   startTimer() {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
