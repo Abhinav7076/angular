@@ -9,3 +9,22 @@
 
 <p>{{timeLeft}} Seconds Left....</p>
 <h2 *ngIf="timeLeft===0">Time Up!!!</h2>
+<div style="width: 100px; height: 100px;" [@divState]="state">
+</div>
+<div class="row" id="card">
+    <div class="col-md-12">
+    <h2 class="list-group-item list-group-item-dark" >Europa is the moon of which planet?</h2>
+    <a class="list-group-item clearfix" >
+        <p class="list-group-item" [@divState]="state" (click)="changeColor()">Jupiter</p>
+    </a>
+    <a class="list-group-item clearfix">
+        <p class="list-group-item">Saturn</p>
+    </a>
+    <a class="list-group-item clearfix">
+        <p class="list-group-item">Mars</p>
+    </a>
+    <a class="list-group-item clearfix">
+        <p class="list-group-item">Uranus</p>
+    </a>
+</div>
+</div>

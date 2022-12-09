@@ -2,13 +2,24 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { dataService } from './data.service';
 import { profile } from './profile.model';
 import { interval, Observable, Subscription } from 'rxjs';
+import { state, style, trigger } from '@angular/animations';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('divState', [
+      state('normal', style({
+        'background-color' : 'yellow'
+      })),
+      state('highlight', style({
+        'background-color': 'red'
+      }))
+    ])
+  ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  
+  state = 'normal'
   subscription: Subscription
   count = 0
 
@@ -16,7 +27,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   timeLeft: number = 3;
   interval;
 
-startTimer() {
+  changeColor(){
+    this.state = 'highlight'
+  }
+
+  startTimer() {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
@@ -31,27 +46,7 @@ startTimer() {
   }
 
   ngOnInit() {
-    // const customIntervalObservable = Observable.create(observer=>{
-    //   let count=0
-    //   setInterval(()=>{
-    //     observer.next(count)
-    //     // this.count = count
-    //     if(count==0)
-    //       observer.complete()
-    //     if(count>3)
-    //       observer.error(new Error('Count greater than 3'))
-    //     count++
-    //   }, 1000)
-    // })
-    // customIntervalObservable.subscribe(data=>{
-    //   console.log(data)
-    // }, error =>{
-    //   console.log(error)
-    //   alert(error)
-    // }, ()=>{
-    //   console.log('Completed')
-    // })
-    this.startTimer()
+    // this.startTimer()
   }
 
   ngOnDestroy(): void {

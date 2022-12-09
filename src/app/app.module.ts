@@ -5,18 +5,12 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { StudentProfileComponent } from './home/student-profile/student-profile.component';
-import { TakeInputComponent } from './home/take-input/take-input.component';
-import { StudentDetailComponent } from './home/student-detail/student-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'students', component: StudentProfileComponent},
-  { path: 'students/:id', component: StudentDetailComponent},
-  { path: 'input/add', component: TakeInputComponent},
-  { path: 'input/:id/edit', component: TakeInputComponent},
   { path: 'not-found', component: PagenotfoundComponent},
   { path: '**', redirectTo: '/not-found'}
 ]
@@ -26,15 +20,13 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    StudentProfileComponent,
-    TakeInputComponent,
-    StudentDetailComponent,
     PagenotfoundComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
