@@ -9,13 +9,18 @@ import { quiz } from './quiz.model';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  qData: quiz = new quiz('Europa is the moon of which planet ?','Jupiter','Saturn','Mars','Uranus','Jupiter')
+  qData: quiz[] = [
+    new quiz('Europa is the moon of which planet ?','Jupiter','Saturn','Mars','Uranus','Jupiter'),
+    new quiz('Phobos is the moon of which planet ?','Jupiter','Saturn','Mars','Uranus','Mars'),
+    new quiz('Zagreb is the capital of which country ?','Slovenia','Croatia','Greece','Hungary','Croatia'),
+  ]
 
 
   subscription: Subscription
   timeLeft: number = 3
   count = 0
   interval
+  idx: number = 0
 
 
   constructor() { }
@@ -40,6 +45,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
+  }
+
+  incrementIndex(idx: number){
+    this.idx = idx
+    console.log(this.idx)
   }
 
 }

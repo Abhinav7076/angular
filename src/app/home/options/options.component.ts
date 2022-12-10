@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-options',
@@ -15,7 +15,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
         'color': 'white'
       })),
       state('wrong', style({
-        'background-color': '#DD4124',
+        'background-color': '#E15D44',
         'color': 'white'
       })),
       transition('normal => correct', animate(500)),
@@ -24,10 +24,11 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
   ]
 })
 export class OptionsComponent implements OnInit {
-  @Input() data: {content: string, ans: string}
+  @Input() data: {content: string, ans: string, idx: number}
   state: string = 'normal'
   @ViewChild('opSel1') optionSelected1: ElementRef
-  
+  @Output() idx = new EventEmitter<number>()
+
   constructor() { }
   checkAnswer(){
       console.log(this.data)
@@ -35,7 +36,16 @@ export class OptionsComponent implements OnInit {
         this.state = 'correct'
       else
         this.state = 'wrong'
+      setTimeout(()=> { 
+        this.idx.emit(this.data.idx+1)
+        this.state='normal'
+       }, 1000)
+      
+      // this.idx.emit(this.data.idx+1)
     }
+  incrementIndex(){
+    
+  }
   ngOnInit(): void {
   }
 
