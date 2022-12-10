@@ -1,11 +1,12 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { interval, Observable, Subscription } from 'rxjs';
+import { dataService } from './data.service';
 import { quiz } from './quiz.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  
+  providers: [dataService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   idx: number = 0
 
 
-  constructor() { }
+  constructor(protected dataService: dataService) { }
   
   startTimer() {
     this.interval = setInterval(() => {
@@ -45,11 +46,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-  }
-
-  incrementIndex(idx: number){
-    this.idx = idx
-    console.log(this.idx)
   }
 
 }

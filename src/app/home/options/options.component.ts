@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { dataService } from '../data.service';
 
 @Component({
   selector: 'app-options',
@@ -29,19 +30,20 @@ export class OptionsComponent implements OnInit {
   @ViewChild('opSel1') optionSelected1: ElementRef
   @Output() idx = new EventEmitter<number>()
 
-  constructor() { }
+  constructor(private dataService: dataService) { }
+
   checkAnswer(){
-      console.log(this.data)
-      if(this.optionSelected1.nativeElement.innerHTML === this.data.ans) 
+      console.log("service "+this.dataService.idx)
+      if(this.optionSelected1.nativeElement.innerHTML === this.data.ans) {
         this.state = 'correct'
+        this.dataService.score += 1
+      }
       else
         this.state = 'wrong'
       setTimeout(()=> { 
-        this.idx.emit(this.data.idx+1)
+        this.dataService.idx += 1
         this.state='normal'
        }, 1000)
-      
-      // this.idx.emit(this.data.idx+1)
     }
   incrementIndex(){
     

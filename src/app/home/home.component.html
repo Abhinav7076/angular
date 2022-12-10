@@ -11,10 +11,10 @@
 <h2 *ngIf="timeLeft===0">Time Up!!!</h2>
 <div class="row" id="card">
     <div class="col-md-12">
-    <h2 class="list-group-item list-group-item-dark" >{{qData[idx].ques}}</h2>
-    <app-options [data]="{content: qData[idx].op1, ans: qData[idx].ans, idx: idx}" (idx)="incrementIndex($event)"></app-options>
-    <app-options [data]="{content: qData[idx].op2, ans: qData[idx].ans, idx: idx}" (idx)="incrementIndex($event)"></app-options>
-    <app-options [data]="{content: qData[idx].op3, ans: qData[idx].ans, idx: idx}" (idx)="incrementIndex($event)"></app-options>
-    <app-options [data]="{content: qData[idx].op4, ans: qData[idx].ans, idx: idx}" (idx)="incrementIndex($event)"></app-options>
+    <h2 class="list-group-item list-group-item-dark" >{{qData[this.dataService.idx].ques}}</h2>
+    <app-options [data]="{content: qData[this.dataService.idx].op1, ans: qData[this.dataService.idx].ans}"></app-options>
+    <app-options [data]="{content: qData[this.dataService.idx].op2, ans: qData[this.dataService.idx].ans}"></app-options>
+    <app-options [data]="{content: qData[this.dataService.idx].op3, ans: qData[this.dataService.idx].ans}"></app-options>
+    <app-options [data]="{content: qData[this.dataService.idx].op4, ans: qData[this.dataService.idx].ans}"></app-options>
 </div>
 </div>
