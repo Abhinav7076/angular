@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core"
 export class dataService {
     idx: number = 0
     score: number = 0
+    disable: Boolean = false
 
     reset(){
         this.idx=0

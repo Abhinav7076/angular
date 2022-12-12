@@ -10,17 +10,15 @@ import { dataService } from '../data.service';
   animations: [
     trigger('divState', [
       state('normal', style({
-        'background-color' : 'white'
+        'background-color' : 'white',
       })),
       state('correct', style({
         'background-color': '#88B04B',
-        'color': 'white',
-        'pointer-events': 'none'
+        'color': 'white'
       })),
       state('wrong', style({
         'background-color': '#E15D44',
-        'color': 'white',
-        'pointer-events': 'none'
+        'color': 'white'
       })),
       transition('normal => correct', animate(500)),
       transition('normal => wrong', animate(500))
@@ -36,20 +34,21 @@ export class OptionsComponent implements OnInit {
   constructor(private dataService: dataService, private router: Router) { }
 
   checkAnswer(){
-      console.log("service "+this.dataService.idx+" "+this.dataService.score)
+      this.dataService.disable = true
+      console.log("service "+this.dataService.idx+" "+this.dataService.disable)
       if(this.optionSelected1.nativeElement.innerHTML === this.data.ans) {
         this.state = 'correct'
         this.dataService.score += 1
       }
       else
         this.state = 'wrong'
-      
       setTimeout(()=> { 
         if(this.dataService.idx===2)
         this.router.navigate(['/score'])
         this.dataService.idx += 1
         this.state='normal'
-       }, 1000)
+        this.dataService.disable=false
+       }, 5000)
     }
   incrementIndex(){
     
