@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   pauseTimer() {
     clearInterval(this.interval);
   }
-
   ngOnInit() {
     // this.startTimer()
   }

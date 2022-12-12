@@ -14,11 +14,13 @@ import { dataService } from '../data.service';
       })),
       state('correct', style({
         'background-color': '#88B04B',
-        'color': 'white'
+        'color': 'white',
+        'pointer-events': 'none'
       })),
       state('wrong', style({
         'background-color': '#E15D44',
-        'color': 'white'
+        'color': 'white',
+        'pointer-events': 'none'
       })),
       transition('normal => correct', animate(500)),
       transition('normal => wrong', animate(500))
