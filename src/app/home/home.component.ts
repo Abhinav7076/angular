@@ -6,7 +6,7 @@ import { quiz } from './quiz.model';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [dataService]
+  // providers: [dataService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   timeLeft: number = 3
   count = 0
   interval
-  idx: number = 0
 
 
   constructor(protected dataService: dataService) { }
@@ -45,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
+    // this.subscription.unsubscribe()
   }
 
 }
