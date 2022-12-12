@@ -9,5 +9,6 @@ export class dataService {
     reset(){
         this.idx=0
         this.score=0
+        this.disable = false
     }
 }

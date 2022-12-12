@@ -39,6 +39,7 @@ export class OptionsComponent implements OnInit {
       if(this.optionSelected1.nativeElement.innerHTML === this.data.ans) {
         this.state = 'correct'
         this.dataService.score += 1
+        this.playSound()
       }
       else
         this.state = 'wrong'
@@ -50,9 +51,14 @@ export class OptionsComponent implements OnInit {
         this.dataService.disable=false
        }, 5000)
     }
-  incrementIndex(){
-    
-  }
+  
+  playSound(){
+      console.log("play")
+      let audio = new Audio();
+      audio.src = "../../../assets/correct-6033.mp3"
+      audio.load();
+      audio.play();
+    }
   ngOnInit(): void {
   }
 
