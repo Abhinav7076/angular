@@ -39,23 +39,25 @@ export class OptionsComponent implements OnInit {
       if(this.optionSelected1.nativeElement.innerHTML === this.data.ans) {
         this.state = 'correct'
         this.dataService.score += 1
-        this.playSound()
       }
       else
         this.state = 'wrong'
+      this.playSound()
       setTimeout(()=> { 
         if(this.dataService.idx===2)
         this.router.navigate(['/score'])
         this.dataService.idx += 1
         this.state='normal'
         this.dataService.disable=false
-       }, 5000)
+       }, 2000)
     }
   
   playSound(){
-      console.log("play")
       let audio = new Audio();
-      audio.src = "../../../assets/correct-6033.mp3"
+      if(this.state === 'correct')
+        audio.src = "../../../assets/correct-6033.mp3"
+      else
+        audio.src = "../../../assets/wronganswer-37702.mp3"
       audio.load();
       audio.play();
     }
