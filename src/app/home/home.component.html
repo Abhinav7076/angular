@@ -1,14 +1,12 @@
 <div class="row">
     <div class="col-md-12">
         <p>Home</p>
-        <h1>{{timeLeft}}</h1>
+        <h1>{{this.dataService.timeLeft}} seconds left</h1>
     </div>
 </div>
 <!-- <button (click)='incrementIndex()'>Increment Number</button> -->
 <button (click)='pauseTimer()'>Pause</button>
 
-<p>{{timeLeft}} Seconds Left....</p>
-<h2 *ngIf="timeLeft===0">Time Up!!!</h2>
 <div class="row" id="card">
     <div class="col-md-12" [ngClass]="{card2: this.dataService.disable}">
     <h2 class="list-group-item list-group-item-dark" >{{qData[this.dataService.idx].ques}}</h2>

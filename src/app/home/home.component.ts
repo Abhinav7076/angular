@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { interval, Observable, Subscription } from 'rxjs';
 import { dataService } from './data.service';
 import { quiz } from './quiz.model';
@@ -16,21 +17,22 @@ export class HomeComponent implements OnInit, OnDestroy {
     new quiz('Zagreb is the capital of which country ?','Slovenia','Croatia','Greece','Hungary','Croatia'),
   ]
 
-
-  subscription: Subscription
-  timeLeft: number = 3
-  count = 0
   interval
 
 
-  constructor(protected dataService: dataService) { }
+  constructor(protected dataService: dataService, private router: Router) { }
   
   startTimer() {
     this.interval = setInterval(() => {
-      if(this.timeLeft > 0) {
-        this.timeLeft--;
+      if(this.dataService.timeLeft > 0) {
+        this.dataService.timeLeft--;
       } else {
         clearInterval(this.interval);
+        this.dataService.idx += 1
+        this.dataService.resetTime()
+        if(this.dataService.idx===3)
+          this.router.navigate(['/score'])
+        this.startTimer()
       }
     },1000)
   }
@@ -39,11 +41,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     clearInterval(this.interval);
   }
   ngOnInit() {
-    // this.startTimer()
+    this.startTimer()
   }
 
   ngOnDestroy(): void {
-    // this.subscription.unsubscribe()
+    clearInterval(this.interval)
   }
 
 }

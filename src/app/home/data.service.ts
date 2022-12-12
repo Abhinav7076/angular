@@ -4,11 +4,18 @@ import { Injectable } from "@angular/core"
 export class dataService {
     idx: number = 0
     score: number = 0
+    timeLimit: number = 10
+    timeLeft: number = this.timeLimit
     disable: Boolean = false
 
     reset(){
-        this.idx=0
-        this.score=0
+        this.idx = 0
+        this.score = 0
+        this.timeLeft = this.timeLimit
         this.disable = false
+    }
+
+    resetTime(){
+        this.timeLeft = this.timeLimit
     }
 }

@@ -45,11 +45,12 @@ export class OptionsComponent implements OnInit {
       this.playSound()
       setTimeout(()=> { 
         if(this.dataService.idx===2)
-        this.router.navigate(['/score'])
+          this.router.navigate(['/score'])
         this.dataService.idx += 1
         this.state='normal'
         this.dataService.disable=false
-       }, 2000)
+        this.dataService.resetTime()
+       }, 3000)
     }
   
   playSound(){
