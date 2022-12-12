@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   startTimer() {
     this.interval = setInterval(() => {
-      if(this.dataService.timeLeft > 0) {
+      if(this.dataService.timeLeft >= 0) {
         this.dataService.timeLeft--;
       } else {
         clearInterval(this.interval);

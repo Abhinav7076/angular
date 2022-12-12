@@ -1,14 +1,9 @@
-<div class="row">
-    <div class="col-md-12">
-        <p>Home</p>
-        <h1>{{this.dataService.timeLeft}} seconds left</h1>
-    </div>
-</div>
 <!-- <button (click)='incrementIndex()'>Increment Number</button> -->
 <button (click)='pauseTimer()'>Pause</button>
 
-<div class="row" id="card">
+<div class="row" id="card" *ngIf="this.dataService.timeLeft >= 0">
     <div class="col-md-12" [ngClass]="{card2: this.dataService.disable}">
+    <h1>{{this.dataService.timeLeft}} seconds left</h1>
     <h2 class="list-group-item list-group-item-dark" >{{qData[this.dataService.idx].ques}}</h2>
     <app-options [data]="{content: qData[this.dataService.idx].op1, ans: qData[this.dataService.idx].ans}"></app-options>
     <app-options [data]="{content: qData[this.dataService.idx].op2, ans: qData[this.dataService.idx].ans}"></app-options>

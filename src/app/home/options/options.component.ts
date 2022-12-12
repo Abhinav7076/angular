@@ -14,11 +14,13 @@ import { dataService } from '../data.service';
       })),
       state('correct', style({
         'background-color': '#88B04B',
-        'color': 'white'
+        'color': 'white',
+        transform: 'scale(1.1)'
       })),
       state('wrong', style({
         'background-color': '#E15D44',
-        'color': 'white'
+        'color': 'white',
+        transform: 'scale(1.1)'
       })),
       transition('normal => correct', animate(500)),
       transition('normal => wrong', animate(500))
@@ -44,15 +46,22 @@ export class OptionsComponent implements OnInit {
         this.state = 'wrong'
       this.playSound()
       setTimeout(()=> { 
+        console.log(this.dataService.timeLeft)
         if(this.dataService.idx===2)
           this.router.navigate(['/score'])
         this.dataService.idx += 1
         this.state='normal'
         this.dataService.disable=false
         this.dataService.resetTime()
-       }, 3000)
+       }, 1000)
     }
-  
+
+  delay(){
+    setTimeout(() => {
+      console.log('delay')
+    }, 5000);
+  }
+    
   playSound(){
       let audio = new Audio();
       if(this.state === 'correct')

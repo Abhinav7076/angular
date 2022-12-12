@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core"
 export class dataService {
     idx: number = 0
     score: number = 0
-    timeLimit: number = 10
+    timeLimit: number = 5
     timeLeft: number = this.timeLimit
     disable: Boolean = false
 
