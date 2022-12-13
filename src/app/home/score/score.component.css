@@ -1,7 +1,25 @@
 #card {
     border: 5em;
-    padding: 2em;;
-    background-color: coral;
+    background-color: white;
     text-align: center;
     border-radius: 5px;
+    margin: auto;
+    margin-top: 6em;
+}
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: gray
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
 }
