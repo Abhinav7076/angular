@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,17 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     // Send Http request
-    this.http.get('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json').subscribe(posts=>{
+    this.http.get('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json')
+    .pipe(map(responseData=>{
+      const arr = []
+      for(const key in responseData){
+        if(responseData.hasOwnProperty(key)) //check for not taking prototype [Object]
+          arr.push([{...responseData[key], id: key}])
+        }
+        return arr
+      }
+    ))
+    .subscribe(posts=>{
       console.log(posts)
     })
   }
