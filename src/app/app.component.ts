@@ -23,6 +23,9 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     // Send Http request
+    this.http.get('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json').subscribe(posts=>{
+      console.log(posts)
+    })
   }
 
   onClearPosts() {
