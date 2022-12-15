@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {}
 
-  onCreatePost(postData: { title: string; content: string }) {
+  onCreatePost(postData: Post) {
     // Send Http request
     console.log(postData);
     this.http.post('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json', postData).subscribe(responseData=>{
@@ -24,12 +25,12 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     // Send Http request
-    this.http.get('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json')
+    this.http.get<{ [key: string]: Post }>('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json')
     .pipe(map(responseData=>{
-      const arr = []
+      const arr: Post[] = []
       for(const key in responseData){
         if(responseData.hasOwnProperty(key)) //check for not taking prototype [Object]
-          arr.push([{...responseData[key], id: key}])
+          arr.push({...responseData[key], id: key})
         }
         return arr
       }
