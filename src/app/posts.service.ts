@@ -8,6 +8,7 @@ export class PostService {
     url: string = 'https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json'
     
     loadedPosts: Post[] = []
+    err: string = ''
 
     constructor(private http: HttpClient) {}
 
@@ -30,6 +31,8 @@ export class PostService {
         }))
         .subscribe(posts=>{
             this.loadedPosts = posts
+        }, error => {
+            this.err = error.message
         })
     }
 
