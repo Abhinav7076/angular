@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
 import { Post } from './post.model';
+import { PostService } from './posts.service';
 
 @Component({
   selector: 'app-root',
@@ -11,36 +11,23 @@ import { Post } from './post.model';
 export class AppComponent implements OnInit {
   loadedPosts: Post[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, protected postService: PostService) {}
 
   ngOnInit() {}
 
   onCreatePost(postData: Post) {
     // Send Http request
     console.log(postData);
-    this.http.post('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json', postData).subscribe(responseData=>{
-      console.log(responseData)
-    })
+    this.postService.createPost(postData)
   }
 
   onFetchPosts() {
     // Send Http request
-    this.http.get<{ [key: string]: Post }>('https://ng-tutorial-1b243-default-rtdb.firebaseio.com/posts.json')
-    .pipe(map(responseData=>{
-      const arr: Post[] = []
-      for(const key in responseData){
-        if(responseData.hasOwnProperty(key)) //check for not taking prototype [Object]
-          arr.push({...responseData[key], id: key})
-        }
-        return arr
-      }
-    ))
-    .subscribe(posts=>{
-      this.loadedPosts = posts
-    })
+    this.postService.fetchPosts()
   }
 
   onClearPosts() {
     // Send Http request
+    this.postService.clearPosts()
   }
 }
