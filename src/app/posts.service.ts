@@ -35,6 +35,8 @@ export class PostService {
 
     clearPosts() {
         // Send Http request
-        this.loadedPosts.splice(0)
+        this.http.delete(this.url).subscribe(()=>{
+            this.loadedPosts.splice(0)
+        })
       }
 }
