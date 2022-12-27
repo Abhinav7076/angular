@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Post } from "./post.model";
 import { map } from "rxjs";
+import { ToastService } from 'angular-toastify'
 
 @Injectable({providedIn: 'root'})
 export class PostService { 
@@ -10,7 +11,7 @@ export class PostService {
     loadedPosts: Post[] = []
     err: string = ''
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private toastService: ToastService) {}
 
     createPost(postData: Post){
         this.http.post(this.url, postData)
@@ -42,4 +43,9 @@ export class PostService {
             this.loadedPosts.splice(0)
         })
       }
+
+    toastMessage(){
+        console.log("tost")
+        this.toastService.info('message');
+    }
 }
