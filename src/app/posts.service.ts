@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Post } from "./post.model";
 import { map } from "rxjs";
 import { ToastService } from 'angular-toastify'
@@ -21,7 +21,10 @@ export class PostService {
     }
 
     fetchPosts(){
-        this.http.get<{[key: string]: Post}>(this.url)
+        this.http.get<{[key: string]: Post}>(this.url, 
+            {
+                headers: new HttpHeaders({'Custom-header': 'hello'})
+            })
         .pipe(map(responseData=>{
             const posts: Post[] = []
             for(const key in responseData){
